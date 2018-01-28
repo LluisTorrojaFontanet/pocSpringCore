@@ -3,7 +3,7 @@ package cat.poc.xml08.blc;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Spring life cycle
+ * Spring life cycle with spring java configuration
  */
 public class MyApp {
 	

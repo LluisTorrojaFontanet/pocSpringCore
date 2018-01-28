@@ -13,8 +13,3 @@ Packages:
 * spring with xml configuration
 * spring with annotation configuration
 * spring with java configuration
-
-Application server (wildlfy):
-* ./$WILDFLY_HOME/bin/standalone.sh -b hostname --debug 8989
-
-# pocSpringCore
