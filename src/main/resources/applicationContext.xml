@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- load the properties file: sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+
+	<!-- Define your beans here xml02 -->
+	<bean id="myCoach02" class="cat.poc.xml02.ioc.TrackCoach"></bean>
+	<!-- <bean id="myCoach02" class="cat.poc.xml02.ioc.BaseballCoach"></bean> -->
+
+
+	<!-- Define your beans here xml03 -->
+	<bean id="myCoach03" class="cat.poc.xml03.di.TrackCoach">
+		<!-- set up constructor injection -->
+		<constructor-arg ref="myFortuneService03" />
+	</bean>
+	<!-- <bean id="myCoach03" class="cat.poc.xml03.di.BaseballCoach"> <constructor-arg 
+		ref="myFortuneService03" /> </bean> -->
+	<bean id="myFortuneService03" class="cat.poc.xml03.di.HappyFortuneService"></bean>
+
+
+	<!-- Define your beans here xml04 -->
+	<bean id="myCoach04" class="cat.poc.xml04.si.CricketCoach">
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myFortuneService04" />
+	</bean>
+	<!-- <bean id="myCoach04" class="cat.poc.xml04.si.CricketCoach"> <property 
+		name="fortuneService" ref="myFortuneService04" /> </bean> -->
+	<bean id="myFortuneService04" class="cat.poc.xml04.si.HappyFortuneService"></bean>
+
+
+	<!-- Define your beans here xml05 -->
+	<bean id="myCoach05" class="cat.poc.xml05.ilv.CricketCoach">
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myFortuneService05" />
+		<!-- inject literal values -->
+		<property name="emailAddress" value="lluis.torroja@gmail.com" />
+		<property name="team" value="FC Barcelona" />
+	</bean>
+	<bean id="myFortuneService05" class="cat.poc.xml05.ilv.HappyFortuneService"></bean>
+
+
+	<!-- Define your beans here xml06 -->
+	<bean id="myCoach06" class="cat.poc.xml06.ipv.CricketCoach">
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myFortuneService06" />
+		<!-- inject literal values -->
+		<property name="emailAddress" value="${foo.email}" />
+		<property name="team" value="${foo.team}" />
+	</bean>
+    <bean id="myFortuneService06" class="cat.poc.xml06.ipv.HappyFortuneService"></bean>
+    
+</beans>
+
+
+
+
+
